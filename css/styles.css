@@ -1,4 +1,5 @@
 :root {
+	--card-set-gap: 30px;
 	--primary-text-color: #757575;
 	--title-text-color: #212121;
 	--white-text-color: #FFFFFF;
@@ -26,20 +27,32 @@ h6,
 p {
 	margin: 0;
 }
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+img{
+	display: block;
+	max-width: 100%;
+}
 
 .container {
 	width: 1200px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: auto;
 	padding-left: 15px;
 	padding-right: 15px;
 }
-
+.section {
+	padding-top: 94px;
+	padding-bottom: 94px;
+}
 /* Обнулення маркування списків */
 .list {
 	list-style: none;
-	padding: 0;
-	margin: 0;
+	padding-left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 /* Обнулення підкреслень у посиланнях */
@@ -53,12 +66,26 @@ p {
 /* Загальне для кнопок */
 .button {
 	display: inline-block;
-	padding: 10px 32px;
 	border-radius: 4px;
 	font-family: inherit;
 	letter-spacing: 0.03em;
 	border: none;
 	cursor: pointer;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.visually-hidden {
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	border: 0;
+	padding: 0;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	margin: -1px;
 }
 
 /* Логотип */
@@ -100,8 +127,7 @@ p {
 	display: flex;
 	align-items: center;
 }
-
-.header-nav-items {
+.header-nav-items{
 	font-weight: 500;
 	display: flex;
 	margin-top: 0;
@@ -121,16 +147,11 @@ p {
 	line-height: 1.17;
 }
 
-.header-contact-link {
-	font-weight: 500;
-	font-size: 14px;
-	line-height: 16px;
-	letter-spacing: 0.02em;
-	color: var(--primary-text-color);
+.header-nav-items .link:hover,
+.header-nav-items .link:focus {
+	color: var(--accent-color);
 }
-
-.header-contact-link:hover,
-.header-contact-link:focus {
+.header-nav-items .link.current{
 	color: var(--accent-color);
 }
 
@@ -140,59 +161,56 @@ p {
 	margin-left: auto;
 }
 .header-contact-list .header-contakt-item {
-		display: flex;
-		align-items: center;
+	display: flex;
+	align-items: center;
 }
-.header-contact-list .header-contakt-item + .header-contakt-item{
+
+.header-contact-list .header-contakt-item+.header-contakt-item {
 	margin-left: 50px;
 }
- .header-nav-items .current {
-	color: var(--accent-color);
-}
-.header .header-nav-link {
-	color: var(--title-text-color);
+
+.header-contact-link {
+	color: var(--primary-text-color);
 	letter-spacing: 0.02em;
 	font-weight: 500;
 	font-size: 14px;
 }
 
-.header-nav-link:hover,
-.header-nav-link:focus {
+.header-contact-link:hover,
+.header-contact-link:focus {
 	color: var(--accent-color);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Секція */
+.work-section {
+	background-color: var(--second-accent-background-color);
+}
 .section-title {
+	margin-bottom: 50px;
+	color: var(--title-text-color);
 	font-weight: 700;
 	font-size: 36px;
 	line-height: 1.17;
 	text-align: center;
-	color: var(--title-text-color);
-}
-.work-section {
-	background-color: var(--second-accent-background-color);
 }
 
-/* Футер */
-.footer-contact-link {
-	font-style: normal;
-	font-size: 14px;
-	line-height: 1.71;
-	color: var(--link-address-bottom-color);
-}
-
-.footer-contact-link:hover,
-.footer-contact-link:focus {
-	color: var(--accent-color);
-}
-
-.footer {
-	background-color: var(--hero-background-color);
-}
-
-.footer-contact-link.address {
-	color: var(--white-text-color);
-}
 
 /* Герой */
 .hero {
@@ -204,21 +222,37 @@ p {
 }
 
 .hero-title {
+	color: var(--white-text-color);
 	max-width: 696px;
 	margin: auto;
 	margin-bottom: 30px;
-
 	font-weight: 900;
 	font-size: 44px;
 	line-height: 1.36;
 	text-align: center;
 	letter-spacing: 0.06em;
 	text-transform: uppercase;
-	color: var(--white-text-color);
 }
 
-.hero-button {
 
+.button {
+	justify-content: center;
+}
+.hero-button{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 216px;
+	color: var(--white-text-color);
+	background-color: var(--accent-color);
+	letter-spacing: 0.06em;
+	font-size: 16px;
+	line-height: 1.875;
+	font-weight: 700;
+}
+
+
+
+/* .hero-button {
 	font-weight: 700;
 	font-size: 16px;
 	line-height: 1.88;
@@ -226,15 +260,21 @@ p {
 	background-color: var(--accent-color);
 	color: var(--white-text-color);
 	cursor: pointer;
-}
+} */
 
-.hero-button:hover,
+/* .hero-button:hover,
 .hero-button:focus {
 	background-color: var(--accent-color);
 	color: var(--white-text-color);
-}
+} */
+
 
 /* Особливості */
+.features {
+	width: auto;
+	padding-bottom: 0;
+}
+
 .feature-list {
 	display: flex;
 	flex-wrap: wrap;
@@ -243,22 +283,28 @@ p {
 	width: 1200px;
 	margin: 0;
 	padding: 0;
+	margin-right: calc(-1 + var(card-set-gap));
 }
-.feature-list .item {
+.feature-list > .item {
 	width: 270px;
+	flex-basis: calc(100% / 3 var(--card-set-gap));
+	margin-right: var(--card-set-gap);
 }
 
 .feature-title {
+	margin-bottom: 10px;
+	color: var(--title-text-color);
 	font-weight: 700;
 	font-size: 14px;
-	line-height: 1.14;
+	line-height: 1.17;
 	text-transform: uppercase;
 }
 
 .feature-text {
+	margin-bottom: 0;
 	font-size: 14px;
 	line-height: 1.71;
-	color: var(--primary-text-color);
+	
 }
 
 /* Чим ми займаємося */
@@ -266,6 +312,7 @@ p {
 	width: auto;
 	background-color: var(--white-background-color);
 }
+
 .work-list {
 	display: flex;
 	justify-content: center;
@@ -273,9 +320,11 @@ p {
 	width: 1200px;
 	margin: 0;
 	padding: 0;
+	margin-right: calc(-1 + var(--card-set-gap));
 }
 .work-list .work-item {
-
+	flex-basis: calc(100% / 3 var(--card-set-gap));
+	margin-right: var(--card-set-gap);
 }
 
 
@@ -291,31 +340,108 @@ p {
 	width: 1200px;
 	margin: 0;
 	padding: 0;
+	margin-right: calc(-1 + var(--card-set-gap));
+}
+
+.team-list img {
+	margin-bottom: 30px;
+}
+.team-list > .team-item {
+	background-color: var(--white-text-color);
+	flex-basis: calc(100% / 4 var(--card-set-gap)) ;
+	margin-right: var(--card-set-gap);
+	padding-top: 0;
+	padding-bottom: 30px;
+	width: 270px;
 }
 .team-worker {
+	color: var(--title-text-color);
+	margin-bottom: 10px;
+
 	font-weight: 500;
 	font-size: 16px;
-	line-height: 1.19px;
+	line-height: 1.18px;
 	text-align: center;
 }
 .team-profession {
-	font-size: 16px;
-	line-height: 1.19;
-	text-align: center;
 	color: var(--primary-text-color);
+	margin-bottom: 0;
+	font-size: 16px;
+	line-height: 1.18;
+	text-align: center;	
 }
 
+/* Футер */
+
+.footer {
+	background-color: var(--hero-background-color);
+	width: auto;
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+
+.footer-contact-link {
+	font-style: normal;
+	font-size: 14px;
+	line-height: 1.71;
+	color: var(--link-address-bottom-color);
+}
+
+.footer-contact .footer-contact-item+.footer-contact-item {
+	margin-top: 9px;
+}
+
+.footer-contact-item .link:hover,
+.footer-contact-item .link:focus {
+	color: var(--accent-color);
+}
+.footer-contact-item .address {
+	color: var(--white-background-color);
+}
+.footer-contact {
+	font-style: normal;
+	font-size: 14px;
+	line-height: 1.71;
+	margin-top: 20px;
+}
+
+.footer-contact-link {
+	color: var(--white-text-color);
+	letter-spacing: 0.03em;
+}
+
+.footer-contact-item .link {
+	color: var(--link-address-bottom-color);
+	letter-spacing: 0.03em;
+}
 
 /* Портфоліо */
+
+.portfolio-section {
+	padding-top: 94px;
+	padding-bottom: 94px;
+}
+
+.portfolio-button-list {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 50px;
+}
 .portfolio-button {
-	font-family: "Roboto", sans-serif;
+	display: block;
+	color: var(--title-text-color);
+	background-color: var(--second-accent-background-color);
+	padding-top: 6px;
+	padding-bottom: 6px;
+	padding-left: 22px;
+	padding-right: 22px;
+
 	font-weight: 500;
 	font-size: 16px;
-	line-height: 1.63;
+	line-height: 1.62;
 	letter-spacing: 0.03em;
-	background-color: var(--second-accent-background-color);
-	color: var(--title-text-color);
-	cursor: pointer;
+	text-align: center;
 }
 
 .portfolio-button:hover,
@@ -323,6 +449,20 @@ p {
 	background-color: var(--accent-color);
 	color: var(--white-text-color);
 }
+.portfolio-button-list {
+padding-left: 25px;
+padding-right: 25px;
+}
+
+.portfolio-button-list .portfolio-button-item + .portfolio-button-item {
+	margin-left: 8px;
+}
+
+
+
+
+
+
 
 .portfolio-link {
 	text-decoration: none;
@@ -341,3 +481,4 @@ p {
 	line-height: 1.87;
 	color: var(--primary-text-color);
 }
+
