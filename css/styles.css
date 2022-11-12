@@ -373,8 +373,8 @@ img{
 	margin-top: 9px;
 }
 
-.contact-item .link:hover,
-.contact-item .link:focus {
+.contact-item .footer-contact-link:hover,
+.contact-item .footer-contact-link:focus {
 	color: var(--accent-color);
 }
 
